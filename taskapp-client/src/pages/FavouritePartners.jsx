@@ -25,14 +25,16 @@ function FavouritePartners() {
   
   console.log(partners);
   return (
-    <div>
-      <div className='h1 text-center mb-[30px] mt-[30px]'>Đơn vị yêu thích</div>
-      {partners?.map(partner => {
-        return <div className='flex justify-center mt-[20px]'>
-          <PartnerArticle key={partner?._id} partner={partner} />
-        </div>
-      })}
-      {partners?.length == 0 && <div className='mt-[30px] flex justify-center'>--  Hết --</div>}
+    <div className='cover-2'>
+      <div className='header-text-2'>Đơn vị yêu thích</div>
+      <div className='container-3'>
+        {partners?.map(partner => {
+          return <div className='flex justify-center mt-[20px] w-[100%]'>
+            <PartnerArticle key={partner?._id} partner={partner} />
+          </div>
+        })}
+        {partners?.length == 0 && <div className='mt-[30px] flex justify-center'>--  Hết --</div>}
+      </div>
     </div>
   )
 }

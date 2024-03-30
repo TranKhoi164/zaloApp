@@ -121,14 +121,14 @@ function PartnerDetail() {
     <div className="container-1">
       {orderDialog && <OrderServiceDialog setDialog={setOrderDialog} services={partner?.services} partnerId={partner?._id}/>}
       {imageListDialog && <ImageListDialog imageList={imageList} setImageListDialog={setImageListDialog} />}
-      <div className='w-[100%] relative'>
+      <div className='w-[100%]'>
         {/* //todo: cover image */}
         {partner?.cover
         ?<img src={partner?.cover}  onClick={()=>openImageListDialog([partner?.cover])} alt="cover" className='cover-1' />
         :<div className="cover-1"></div>}
       </div>
       
-      <div className="w-[100%] box-1 relative flex justify-center">
+      <div className="w-[100%] box-1 relative flex justify-center box-shadow-1">
         <div className="avatar-container">
           <img src={partner?.avatar} onClick={()=>openImageListDialog([partner?.avatar])} alt="avatar" className="avatar-2 h-[150px] w-[150px]" />
           <div className="h1 text-center leading-7">{watchMoreString(partner?.partnerName, 50)}</div>
@@ -140,11 +140,11 @@ function PartnerDetail() {
           {favPartnerLoading 
           ? <Spinner className="w-[10%] h-[35px]" />
           : account?.favouritePartners?.includes(partner?._id)
-            ? <button className="w-[10%] h-[35px] border-[1px] rounded border-blue-600 text-blue-600" onClick={removeFromFavPartner}><Icon icon="zi-star-solid" /></button>
-            : <button className="w-[10%] h-[35px] border-[1px] rounded border-blue-600 text-blue-600" onClick={addToFavPartner}><Icon icon="zi-star" /></button>
+            ? <button className="w-[10%] h-[35px] border-[1px] rounded border-[#1f96ff] text-[#1f96ff]" onClick={removeFromFavPartner}><Icon icon="zi-star-solid" /></button>
+            : <button className="w-[10%] h-[35px] border-[1px] rounded border-[#1f96ff] text-[#1f96ff]" onClick={addToFavPartner}><Icon icon="zi-star" /></button>
           }
         </div>
-        <div className="w-[95%] flex items-cente flex-wrap border-blue-600 mt-[10px] text-blue-500">
+        <div className="w-[95%] flex items-cente flex-wrap border-[#1f96ff] mt-[10px] text-[#1f96ff]">
           {partner?.services?.map(service => <Chip key={service?._id} el={service?.name} />)}
           {partner?.location?.map(el => <Chip key={el} el={el} />)}
         </div>
@@ -152,7 +152,7 @@ function PartnerDetail() {
 
       
       
-      <div className="container-1 bg-white w-[100%] mt-[15px] pb-5">
+      <div className="container-1 box-shadow-1 bg-white w-[100%] mt-[15px] pb-5">
         <div className="h1 w-[95%] mt-5 mb-5">Thông tin liên hệ</div>
         <div className="w-[95%] mt-[1px] pt-9 pb-3 text-[17px] font-[400] text-[#686868] border-t-[1px] border-[#a0a0a0] border-dashed">
           {/* //todo: email and phoneNumber */}
@@ -175,7 +175,7 @@ function PartnerDetail() {
       </div>
 
       {partner?.details?.length != 0 && 
-      <div className="container-1 w-[100%] bg-white mt-[15px] pb-5">
+      <div className="container-1 box-shadow-1 w-[100%] bg-white mt-[15px] pb-5">
         <div className="h1 mt-5 mb-5 w-[100%] ml-5">Chi tiết</div>
         {/* //todo: detail list */}
         <div className="w-[95%] pt-9 border-t-[1px] border-[#a0a0a0] border-dashed">

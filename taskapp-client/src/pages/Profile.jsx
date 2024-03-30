@@ -38,9 +38,12 @@ function Profile() {
   
 
   return (
-      <div className='flex items-center flex-col w-[100%] mb-[100px]'>
+    <div className='cover-2'>
+      <div className='header-text-2'>Cá nhân</div>
+      <div className='container-3 pb-[100px]'>
         <BasicInforUpdate account={account} setAccount={setAccount} />
       </div>
+    </div>
   )
 }
 

@@ -9,6 +9,9 @@
   .container-2 {
     @apply flex items-center justify-between
   }
+  .container-3 {
+    @apply flex flex-col items-center justify-center bg-white rounded-t-3xl absolute top-[23vh] w-[100vw] min-h-[77vh] items-center
+  }
   .box-1 {
     @apply bg-[#ffffff] w-[98%] flex flex-col  items-center pt-[20px] pb-[20px];
   }
@@ -16,13 +19,13 @@
     @apply w-[85%] flex flex-col justify-center relative
   }
   .text-input-1 {
-    @apply h-[40px] w-[100%] border-[#bfbfbf] border-[1px] 
+    @apply h-[40px] w-[100%] border-[#c6c6c6b1] border-[1px] 
   }
   .select-1 {
-    @apply h-[40px] w-[33%] border-[#bfbfbf] border-[1px] 
+    @apply h-[40px] w-[33%] border-[#c6c6c6b1] border-[1px] 
   }
   .text-area-1 {
-    @apply border-[#bfbfbf] border-[1px] mt-[10px]
+    @apply border-[#c6c6c6b1] border-[1px] mt-[10px] rounded-md
   }
   .h1 {
     @apply text-[27px] font-[600] mb-[15px] mt-[15px]
@@ -34,16 +37,20 @@
     @apply text-[16px] font-[500]
   }
   .btn-1 {
-    @apply w-[100%] h-[40px] bg-blue-500 text-white;
+    @apply w-[100%] h-[40px] bg-[#1f96ff] text-white rounded-md;
   }
   .btn-2 {
-    @apply h-[40px] pr-[20px] pl-[20px] bg-blue-500 text-white;
+    @apply h-[40px] pr-[20px] pl-[20px] bg-[#1f96ff] text-white;
   }
   .btn-3 {
-    @apply h-[40px] bg-transparent border-[1px] border-[#3d77db] rounded-md
+    @apply h-[40px] bg-transparent border-[1px] border-[#1f96ff] rounded-md
   }
   .btn-4 {
-    @apply bg-[#3d77db] text-white h-[35px] rounded
+    @apply bg-[#1f96ff] text-white h-[35px] rounded
+  }
+  .btn-5 {
+    /* bg-[hsl(194,100%,93%)]  */
+    @apply font-bold bg-gradient-to-r text-white h-[50px] from-[rgb(46,133,246)] to-[rgb(108,217,253)] flex flex-col  items-center w-[90%] rounded-lg mt-[5px]
   }
   .error-input {
     @apply mb-[5px] text-red-500 opacity-0 h-[35px] text-sm;
@@ -64,10 +71,19 @@
     @apply flex justify-between pt-[10px] pb-[10px] border-t-[1px] border-[#e8e8e8]
   }
   .badge-1 {
-    @apply p-2 bg-[#59abfe] rounded-lg text-[15px]
+    @apply p-2 bg-[#1f96ff] rounded-lg text-[15px]
   }
   .article-1 {
-    @apply w-[100%] min-h-[100px] flex items-center border-0 border-[#929292] border-b-[1px] bg-white
+    @apply w-[100%] min-h-[100px] flex items-center border-0 border-[#c6c6c6b1] border-[1px] bg-white
+  }
+  .article-2 {
+    /* bg-[hsl(194,100%,93%)]  */
+    /* bg-gradient-to-r text-white h-[70px] from-[rgb(93,205,253)] to-[rgb(108,217,253)] */
+    @apply bg-[#63b9ff] text-white h-[60px] flex justify-between items-center w-[90%] rounded-lg mt-[5px]
+  }
+  .partner-article-1 {
+    /* border-0 border-[#929292] border-b-[1px] */
+    @apply w-[87%] min-h-[100px] flex items-center rounded-md overflow-hidden  bg-white
   }
   .cover-image-1 {
     @apply w-[100%] h-24 bg-[#d5d5d5] flex justify-center items-center text-white text-[20px]
@@ -76,7 +92,7 @@
     @apply absolute top-0 w-[100%] min-h-[100%] bg-[white] z-10 
   }
   .font-trigger-1 {
-    @apply text-[#3d77db] font-bold
+    @apply text-[#1f96ff] font-bold
   }
   .checkbox-1 {
     @apply scale-[1.5] mr-[10px] mb-[10px]
@@ -89,6 +105,9 @@
   }
   .cover-1 {
     @apply min-h-[150px] w-[100%] object-cover
+  }
+  .cover-2 {
+    @apply bg-gradient-to-r from-[#1f9aff] to-[rgb(143,210,255)] w-[100vw] relative h-[100vh]
   }
   .image-list-1 {
     @apply h-[50px] mt-[5px] mr-[5px]
@@ -103,12 +122,36 @@
     @apply text-[#8c8c8c]
   }
   .navbar-1 {
-    @apply flex
+    @apply flex  w-[100%]
   }
   .tab-1 {
     @apply flex justify-center items-center flex-1 h-[40px] bg-white font-[500]
   }
   .selected-tab-1 {
-    @apply text-blue-500 border-b-[2px] border-b-blue-500
+    @apply text-[#1f96ff] border-b-[2px] border-b-[#1f96ff]
+  }
+  .search-form-1 {
+    @apply  border-[1px] border-[#c6c6c6b1] text-[#6f6f6fb1] w-[87%] p-3 flex justify-between rounded-md
+  }
+  .header-container {
+    @apply relative w-[100vw] h-[100%]
+  }
+  .header-image {
+    @apply brightness-[40%] h-[200px] w-[100vw] object-cover rounded-b-2xl
+  }
+  .header-text-container {
+    @apply absolute top-[0] w-[100%] h-[100%] flex justify-center items-center
+  }
+  .header-text {
+    @apply text-white font-bold text-[17px]
+  }
+  .header-text-2 {
+    @apply text-white font-bold text-[30px] h-[29vh] ml-[20px] flex items-center
+  }
+  .box-shadow-1 {
+    @apply shadow-lg shadow-gray-200
+  }
+  .box-shadow-2 {
+    /* @apply shadow-[0px_0px_100px_-15px_rgba(0,0,0,0.2)]  */
   }
 }

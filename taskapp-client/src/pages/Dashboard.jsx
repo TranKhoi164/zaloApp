@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { Spinner, useNavigate, useSnackbar } from 'zmp-ui'
+import { Icon, Spinner, useNavigate, useSnackbar } from 'zmp-ui'
 import { accountState } from '../State'
 import { AccountApi } from '../api/accountApi'
 import { getAccessToken, getPhoneNumber } from 'zmp-sdk/apis'
@@ -73,74 +73,91 @@ function Dashboard() {
   }
 
   return (
-    <div className='container-1 h-[100vh] items-center'>
-      {Object.keys(account)?.length == 0 
-      && <div className='box-1 bg-transparent'>
-        {loginLoading 
-        ? <div className='flex justify-center'><Spinner /></div>
-        : <button onClick={loginZaloPhoneNumber} className='btn-1 w-[50%] rounded-lg mb-[20px] mt-[20px]'>ĐĂNG NHẬP</button>}
-      </div>  }
-    
-      <div className='box-1 mt-[5px] text-1' onClick={() => {
+    <div className='cover-2'>
+      <div className='header-text-2'>Dashboard</div>
+      <div className='container-3'>
+        {Object.keys(account)?.length == 0 
+        && <div className='box-1 bg-transparent'>
+          {loginLoading 
+          ? <div className='flex justify-center'><Spinner /></div>
+          : <button onClick={loginZaloPhoneNumber} className='container-1 btn-5 w-[50%] rounded-lg mb-[1vh]'>ĐĂNG NHẬP</button>}
+        </div>  }
+      
+        <div className='article-2 box-shadow-2 text-1' onClick={() => {
+            if (Object.keys(account).length == 0) {
+              loginZaloPhoneNumber()
+              return
+            }
+            navigate('/profile')
+          }}>
+          <div className='ml-[15px]'>Cá nhân</div>
+          <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+        </div>
+
+
+        {account?.role === 'partner' && <>
+          <div className='article-2 box-shadow-2 text-1' onClick={() => {
+            if (Object.keys(account).length == 0) {
+              loginZaloPhoneNumber()
+              return
+            }
+            navigate('/partner/partner_profile')
+          }}>
+            <div className='ml-[15px]'>Quản lý profile</div>
+            <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+          </div>
+        </>}
+        {account?.role === 'admin' && <>
+          <div className='article-2 box-shadow-2 text-1' onClick={() => {
+            if (Object.keys(account)?.length == 0) {
+              loginZaloPhoneNumber()
+              return
+            }
+            navigate('/service_management')
+          }}>
+            <div className='ml-[15px]'>Quản lý dịch vụ</div>
+            <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+          </div>
+
+          <div className='article-2 box-shadow-2 text-1' onClick={() => {
+            if (Object.keys(account)?.length == 0) {
+              loginZaloPhoneNumber()
+              return
+            }
+            navigate('/verified_partners')
+          }}>
+            <div className='ml-[15px]'>Quản lý đơn vị</div>
+            <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+          </div>
+        </>}
+        
+        <div className='article-2 box-shadow-2 text-1' onClick={() => {
           if (Object.keys(account).length == 0) {
             loginZaloPhoneNumber()
             return
           }
-          navigate('/profile')
+          navigate('/my_orders/user')
         }}>
-        Cá nhân
-      </div>
-      {account?.role === 'partner' && <>
-        <div className='box-1 mt-[5px] text-1' onClick={() => {
+          <div className='ml-[15px]'>Đơn hàng của tôi</div>
+          <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+        </div>
+
+        <div className='article-2 box-shadow-2 text-1' onClick={() => {
           if (Object.keys(account).length == 0) {
             loginZaloPhoneNumber()
             return
           }
-          navigate('/partner/partner_profile')
+          navigate('/favourite_partners')
         }}>
-          Quản lý profile
+          <div className='ml-[15px]'>Đơn vị yêu thích</div>
+          <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
         </div>
-      </>}
-      {account?.role === 'admin' && <>
-        <div className='box-1 mt-[5px] text-1' onClick={() => {
-          if (Object.keys(account)?.length == 0) {
-            loginZaloPhoneNumber()
-            return
-          }
-          navigate('/service_management')
-        }}>
-          Quản lý dịch vụ
-        </div>
-        <div className='box-1 mt-[5px] text-1' onClick={() => {
-          if (Object.keys(account)?.length == 0) {
-            loginZaloPhoneNumber()
-            return
-          }
-          navigate('/verified_partners')
-        }}>
-          Quản lý đơn vị
-        </div>
-      </>}
-      <div className='box-1 mt-[5px] text-1' onClick={() => {
-        if (Object.keys(account).length == 0) {
-          loginZaloPhoneNumber()
-          return
-        }
-        navigate('/my_orders/user')
-      }}>
-        Đơn hàng của tôi
+        {!loadingLogout ? <button className='article-2 box-shadow-2 text-1 mb-[90px]' onClick={triggerLogout}>
+          <div className='ml-[15px]'>Đăng xuất</div>
+          <div className='mr-[5px] '><Icon icon='zi-chevron-right' size={30} /></div>
+        </button>
+        : <Spinner />}
       </div>
-      <div className='box-1 mt-[5px] text-1' onClick={() => {
-        if (Object.keys(account).length == 0) {
-          loginZaloPhoneNumber()
-          return
-        }
-        navigate('/favourite_partners')
-      }}>
-        Đơn vị yêu thích
-      </div>
-      {!loadingLogout ? <button className='box-1 text-1 mt-[5px] mb-[90px]' onClick={triggerLogout}>Đăng xuất</button>
-      : <Spinner />}
     </div>
   )
 }

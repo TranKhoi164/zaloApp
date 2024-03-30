@@ -71,7 +71,6 @@ function BasicInforUpdate({account, setAccount}) {
 
   return (
     <div className="box-1 mt-[20px]">
-      <div className="h1">Cập nhật thông tin</div>
       <AvatarUpdate account={account} setAccount={setAccount} />      
       <form onSubmit={handleSubmit} className="form-1">
         <div>Sđt</div>

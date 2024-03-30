@@ -77,7 +77,7 @@ function OrderArticle({orders, setOrders, order, role}) {
   return (
     <>
     {openDialog && <OrderDialog order={order} setOpenDialog={setOpenDialog} />}
-    <div className='relative flex flex-col justify-between bg-white min-h-[100px] mt-[20px]'>
+    <div className='relative box-shadow-1 flex flex-col justify-between bg-white min-h-[100px] mt-[20px]'>
       <div className='ml-[10px] text-[13px] mt-[5px] text-[#686868]'><span>Mã: </span>{order?._id}</div>
       <div className='mt-[10px] max-w-[85%] ml-[10px]'>
         <div onClick={()=>setOpenDialog(true)}>

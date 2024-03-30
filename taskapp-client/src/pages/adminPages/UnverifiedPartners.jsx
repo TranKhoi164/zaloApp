@@ -70,16 +70,23 @@ function UnverifiedPartners() {
 
   return (
     <div className='container-1'>
-      <div className='box-1 w-[95%] p-0 mt-[20px] relative'>
+      <div className='box-1 w-[95%] box-shadow-1 p-0 mt-[20px] relative'>
         {/* //todo: navigate to verified partner */}
         {/* {checkedService?.length>0&&<div className='absolute top-[5px] right-[5px] text-red-500'><Icon icon='zi-delete' onClick={deleteServices} /></div>} */}
-        <div className='h1' onClick={()=>navigate('/verified_partners')}>Đơn vị đã xác nhận {newVerifiedPartner && <span className='pl-[6px] pr-[6px] bg-blue-500 rounded-xl font-bold text-[20px]'>!</span>}</div>
+        <div className='h1 ' onClick={()=>navigate('/verified_partners')}>Đơn vị đã xác nhận {newVerifiedPartner && <span className='pl-[6px] pr-[6px] bg-blue-500 rounded-xl font-bold text-[20px]'>!</span>}</div>
 
       </div>
 
-      <div className='h1'>Đơn vị chờ xác nhận</div>
-      <div className='flex justify-end mt-[10px] w-[100%]'>
-        <button className='btn-1 f w-[30px] h-[30px] bg-blue-500' onClick={()=>setOpenSearch(true)}><Icon icon='zi-search' /></button>
+      <div className='h1 mt-[20px]'>Đơn vị chờ xác nhận</div>
+      <div className='container-1 w-[100%] mt-[20px] mb-[30]' onClick={()=>setOpenSearch(!openSearch)}>
+        <div className='search-form-1'>
+          <div><Icon icon='zi-search' className='mr-[5px]' /> Tìm kiếm</div>
+          <div>
+            {openSearch 
+            ? <Icon icon='zi-chevron-up' />
+            : <Icon icon='zi-chevron-down' />}
+          </div>
+        </div>
       </div>
       {openSearch && <div className='mt-[10px]'><SearchPartnersPopup isFinding={isFinding} setHasMore={setHasMore} loadPartners={loadPartners} setOpenSearch={setOpenSearch} searchObj={searchObj} setSearchObj={setSearchObj} /></div>}
       {partners?.map(partner => {

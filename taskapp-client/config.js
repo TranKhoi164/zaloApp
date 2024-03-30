@@ -1,8 +1,8 @@
 
 const config = () => {
-  // let NODE_ENV='development';
+  // let NODE_ENV='testing';
   let NODE_ENV='testing';
-  let REACT_APP_SERVER_URL
+  let REACT_APP_SERVER_URL 
   if (NODE_ENV=='development') {
     REACT_APP_SERVER_URL='http://localhost:5000'
   } else if (NODE_ENV=='testing') {

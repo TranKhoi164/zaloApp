@@ -54,26 +54,26 @@ function VerifiedPartnerArticle({partner, partners, setPartners}) {
   return (
     <>
       <PartnerArticle partner={partner} />
-      <div className="flex justify-between items-center w-[90%] mb-[20px]">
+      <div className="flex justify-between items-center w-[87%] mb-[20px]">
         {!isLoading1 ? (
           <button
-            className="btn-1 w-[50%] h-[40px]"
+            className="btn-1 rounded-none w-[50%] h-[40px]"
             onClick={cancelVerification}
           >
             Hủy xác nhận
           </button>
         ) : (
-          <button className="btn-1 w-[50%] h-[40px]">Loading...</button>
+          <button className="btn-1 rounded-none w-[50%] h-[40px]">Loading...</button>
         )}
         {!isLoading2 ? (
           <button
-            className="btn-1 w-[50%] bg-[#bababa] h-[40px]"
+            className="btn-1 rounded-none w-[50%] bg-[#bababa] h-[40px]"
             onClick={deletePartner}
           >
             Hủy bỏ
           </button>
         ) : (
-          <button className="btn-1 w-[50%] bg-[#bababa] h-[40px]">
+          <button className="btn-1 rounded-none w-[50%] bg-[#bababa] h-[40px]">
             Loading...
           </button>
         )}

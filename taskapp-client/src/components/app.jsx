@@ -9,7 +9,9 @@ const MyApp = () => {
     <RecoilRoot>
       <App>
         <SnackbarProvider>
-          <Router />
+          <div className="bg-white">
+            <Router />
+          </div>
         </SnackbarProvider>
       </App>
     </RecoilRoot>

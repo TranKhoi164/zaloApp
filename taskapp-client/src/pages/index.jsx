@@ -64,14 +64,30 @@ function HomePage() {
   
   return (
     <div>
-      <div className='flex justify-end mt-[10px]'>
-        <button className='btn-1 f w-[30px] h-[30px] bg-blue-500' onClick={()=>setOpenSearch(true)}><Icon icon='zi-search' /></button>
+      {/* <div className='flex justify-end mt-[10px]'>
+        <button className='btn-1 f w-[30px] h-[30px] bg-[#1f96ff]' onClick={()=>setOpenSearch(true)}><Icon icon='zi-search' /></button>
+      </div> */}
+      <div className='header-container'>
+        <img className='header-image' src="https://images.pexels.com/photos/3184634/pexels-photo-3184634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+        <div className='header-text-container'>
+          <div className='header-text'>LIÊN HỆ DOANH NGHIỆP</div>
+        </div>
       </div>
-      {openSearch && <div className='mt-[10px]'><SearchPartnersPopup isFinding={isFinding} loadPartners={loadPartners} setCurrentPage={setCurrentPage} setHasMore={setHasMore} setOpenSearch={setOpenSearch} searchObj={searchObj} setSearchObj={setSearchObj} /></div>}
+      <div className='container-1 w-[100%] mt-[20px]' onClick={()=>setOpenSearch(!openSearch)}>
+        <div className='search-form-1'>
+          <div><Icon icon='zi-search' className='mr-[5px]' /> Tìm kiếm</div>
+          <div>
+            {openSearch 
+            ? <Icon icon='zi-chevron-up' />
+            : <Icon icon='zi-chevron-down' />}
+          </div>
+        </div>
+      </div>
+      {openSearch && <div className=''><SearchPartnersPopup isFinding={isFinding} loadPartners={loadPartners} setCurrentPage={setCurrentPage} setHasMore={setHasMore} setOpenSearch={setOpenSearch} searchObj={searchObj} setSearchObj={setSearchObj} /></div>}
     
       {partners?.map(partner => {
         return <div className='flex justify-center mt-[20px]'>
-        <PartnerArticle key={partner?._id} partner={partner} />
+          <PartnerArticle key={partner?._id} partner={partner} />
         </div>
       })}
 

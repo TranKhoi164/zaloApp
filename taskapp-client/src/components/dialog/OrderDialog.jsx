@@ -39,7 +39,7 @@ function OrderDialog({order, setOpenDialog}) {
 
 
   return (
-    <div className='dialog-1 flex flex-col items-center  pb-[100px]'>
+    <div className='dialog-1 flex flex-col items-center  pb-[100px] mt-[20px]'>
       <div onClick={closeDialog} className='mt-[20px] text-red-400 font-bold w-[95%] text-[20px] flex justify-end'>X</div>
       <form className='form-1' onSubmit={handleSubmitPartnerNote}>
       <div>Ghi chú đơn vị</div>

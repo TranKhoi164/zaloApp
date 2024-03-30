@@ -150,37 +150,46 @@ function MyOrders() {
   }
 
   return (
-    <div>
-      <div className='navbar-1'>
-        <div className={currentTab === 1 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(1)}>Chờ</div>
-        <div className={currentTab === 2 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(2)}>Xử lý</div>
-        <div className={currentTab === 3 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(3)}>Đã xong</div>
-        <div className={currentTab === 4 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(4)}>Đã hủy</div>
-      </div>
+    <div className='cover-2'>
+      <div className='header-text-2'>Đơn hàng của tôi</div>
+      <div className='container-3'>
+        <div className='navbar-1 mt-[30px]'>
+          <div className={currentTab === 1 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(1)}>Chờ</div>
+          <div className={currentTab === 2 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(2)}>Xử lý</div>
+          <div className={currentTab === 3 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(3)}>Đã xong</div>
+          <div className={currentTab === 4 ? 'tab-1 selected-tab-1' : 'tab-1'} onClick={()=>changeTab(4)}>Đã hủy</div>
+        </div>
 
-      <div>
-        <div className='h1 flex justify-between items-center mt-[30px] mb-[30px]'>
-          <div className='ml-[10px]'>Danh sách đơn</div>
-          <button className='btn-1 f w-[30px] h-[30px] bg-blue-500' onClick={()=>setOpenSearch(true)}><Icon icon='zi-search' /></button>
-        </div>
-        {openSearch && <SearchOrdersPopup loadOrders={loadOrders} setHasMore={setHasMore} setCurrentPage={setCurrentPage} setIsLoading={setIsLoading} currentTab={currentTab} setOrders={setOrders} searchObj={searchObj} setSearchObj={setSearchObj} setOpenSearch={setOpenSearch} />}
-        <div>
-          {orders?.map(order => {
-            return <OrderArticle key={order?._id} orders={orders} setOrders={setOrders} role={role} order={order} />
-          })}
-        </div>
-        <div className='flex justify-center mb-[100px] mt-[20px]'>
-          {isLoading 
-          ? <Spinner visible /> 
-          : <>
-              {!hasMore 
-                ? <div>-- Hết --</div>
-                : <>
-                  <button onClick={()=>{loadOrders(currentPage+1), setCurrentPage(currentPage+1)}} className='btn-3 pl-[10px] pr-[10px] border-blue-500 text-blue-500'>Xem thêm</button>
-                </>
-              }
-            </>
-          }
+        <div className='w-[100%]'>
+          <div className='container-1 w-[100%] mt-[20px]' onClick={()=>setOpenSearch(!openSearch)}>
+            <div className='search-form-1'>
+              <div><Icon icon='zi-search' className='mr-[5px]' /> Tìm kiếm</div>
+              <div>
+                {openSearch 
+                ? <Icon icon='zi-chevron-up' />
+                : <Icon icon='zi-chevron-down' />}
+              </div>
+            </div>
+          </div>
+          {openSearch && <SearchOrdersPopup loadOrders={loadOrders} setHasMore={setHasMore} setCurrentPage={setCurrentPage} setIsLoading={setIsLoading} currentTab={currentTab} setOrders={setOrders} searchObj={searchObj} setSearchObj={setSearchObj} setOpenSearch={setOpenSearch} />}
+          <div>
+            {orders?.map(order => {
+              return <OrderArticle key={order?._id} orders={orders} setOrders={setOrders} role={role} order={order} />
+            })}
+          </div>
+          <div className='flex justify-center mb-[100px] mt-[20px]'>
+            {isLoading 
+            ? <Spinner visible /> 
+            : <>
+                {!hasMore 
+                  ? <div>-- Hết --</div>
+                  : <>
+                    <button onClick={()=>{loadOrders(currentPage+1), setCurrentPage(currentPage+1)}} className='btn-3 pl-[10px] pr-[10px] border-blue-500 text-blue-500'>Xem thêm</button>
+                  </>
+                }
+              </>
+            }
+          </div>
         </div>
       </div>
     </div>

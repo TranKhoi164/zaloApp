@@ -234,8 +234,13 @@ function PartnerRegister() {
     <Page>
      <div>
         {/* login box */}
-        <div className='box-1 pb-[100px]'>
-          <div className='h1'>Liên Hệ Hợp Tác</div>
+        <div className='header-container'>
+          <img className='header-image' src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <div className='header-text-container'>
+            <div className='header-text'>LIÊN HỆ HỢP TÁC</div>
+          </div>
+        </div>
+        <div className='box-1 pb-[100px] mt-[25px]'>
           <form className='form-1'>
             <div>Tên người liên hệ</div>
             <input type="text" name='fullName' onChange={handleChange} className='text-input-1' placeholder='Nhập tên người liên hệ' defaultValue={account?.fullName} />
@@ -300,7 +305,7 @@ function PartnerRegister() {
             {
               isLoading
               ? <div className='flex justify-center mt-[20px]'><Spinner visible /></div>
-              : <button onClick={handlePartnerRegister} className='btn-1 mt-[20px]'>ĐĂNG KÝ</button>
+              : <button onClick={handlePartnerRegister} className='btn-1 mt-[30px]'>ĐĂNG KÝ</button>
             }
           </form>
         </div>  

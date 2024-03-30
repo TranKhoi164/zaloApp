@@ -46,9 +46,9 @@ function SearchPartnersPopup({loadPartners, isFinding, setCurrentPage, setHasMor
 
   return (
     <div className='box-1 w-[100%] relative'>
-      <div className='absolute top-[10px] right-[20px] text-blue-500' onClick={()=>setOpenSearch(false)}>Close</div>
-      <form className='w-[90%]' onSubmit={handleSubmit}>
-        <input type="text" placeholder='Tên đơn vị' name='partnerName' value={searchObj?.partnerName} onChange={handleChange} className='text-input-1 mt-[25px]' />
+      <div className='absolute top-[10px] right-[8%] text-[#1f96ff]' onClick={()=>setOpenSearch(false)}>Close</div>
+      <form className='w-[85%]' onSubmit={handleSubmit}>
+        <input type="text" placeholder='Tên đơn vị' name='partnerName' value={searchObj?.partnerName} onChange={handleChange} className='text-input-1 mt-[20px]' />
         <input type="number" placeholder='Sđt' name='phoneNumber' value={searchObj?.phoneNumber} onChange={handleChange} className='text-input-1 mt-[20px]' />
         <select className='text-input-1 mt-[20px]' value={searchObj?.services} name='services' onChange={handleChange}>
           <option selected value=''>Dịch vụ</option>
@@ -65,7 +65,7 @@ function SearchPartnersPopup({loadPartners, isFinding, setCurrentPage, setHasMor
         {
           isFinding 
           ? <div className='mt-[10px]'><Spinner /></div>
-          : <button type='submit' className='btn-2 mt-[20px] bg-blue-500'>Tìm kiếm</button>
+          : <button type='submit' className='btn-2 mt-[20px] bg-[#1f96ff]'>Tìm kiếm</button>
         }
       </form>
     </div>

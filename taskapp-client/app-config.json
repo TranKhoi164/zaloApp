@@ -1,9 +1,9 @@
 {
   "app": {
-    "title": "taskapp-client",
-    "headerColor": "#1843EF",
+    "title": "taskapp",
+    "headerColor": "#1f96ff",
     "textColor": "white",
-    "statusBarColor": "#1843EF",
+    "statusBarColor": "#1f96ff",
     "leftButton": "back"
   },
   "debug": false,
